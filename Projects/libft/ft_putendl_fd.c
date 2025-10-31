@@ -1,34 +1,28 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 14:53:35 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:20 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    ft_putstr_fd(char   *s,int  fd)
+#include "libft.h"
+
+void	ft_putendl_fd(char	*s, int fd)
 {
-    int i;
+	int		i;
+	char	nl;
 
-    i = 0;
-    while (s[i])
-    {
-        write(fd, s + i,1);
-        i++;
-    }
-    char nl = '\n';
-    write(fd, &nl,1);
-}
-
-int main(void)
-{
-    int fd;
-
-    fd = open("test.txt",O_WRONLY | O_CREAT | O_TRUNC, 0644);
-
-    if (fd == -1)
-    {
-        perror("Error opening file.");
-        return 1;
-    }
-    
-    ft_putstr_fd("This is a test!", fd);
-    close(fd);
-    return 0;
+	nl = '\n';
+	i = 0;
+	while (s[i])
+	{
+		write (fd, s + i, 1);
+		i++;
+	}
+	write(fd, &nl, 1);
 }

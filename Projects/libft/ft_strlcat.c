@@ -1,11 +1,23 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:29 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:35 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_strlcat(char *dst, const char *src, int size)
+#include "libft.h"
+
+size_t	ft_strlcat(char	*dst, const char	*src, size_t size)
 {
-	int	s;
-	int	d;
-	int	di;
-	int	si;
+	size_t	s;
+	size_t	si;
+	size_t	d;
+	size_t	di;
 
 	si = ft_strlen(src);
 	if (!dst && size == 0)
@@ -23,17 +35,4 @@ int	ft_strlcat(char *dst, const char *src, int size)
 	}
 	dst[d] = 0;
 	return (di + si);
-}
-
-int main(void)
-{
-    char dest[10] = "Hi";
-    char *src = "World!";
-
-    size_t res = ft_strlcat(dest, src, sizeof(dest));
-
-    printf("Destination: %s\n", dest);  // Output: "HiWorld!"
-    printf("Total length attempted: %zu\n", res);  // Output: 8
-
-    return 0;
 }

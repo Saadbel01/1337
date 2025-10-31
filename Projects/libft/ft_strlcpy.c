@@ -1,26 +1,25 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:32 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:37 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strlen(const char  *str)
+#include "libft.h"
+
+size_t	ft_strlcpy(char	*dest, const char	*src, size_t size)
 {
-    int i;
-
-    i = 0;
-    while (str[i])
-    {
-        i++;
-    }
-    return (i);
-}
-
-int	ft_strlcpy(char *dest, const char *src, int size)
-{
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (size != 0)
 	{
-		while (src[i]  && i < (size - 1))
+		while (src[i] && i < (size - 1))
 		{
 			dest[i] = src[i];
 			i++;
@@ -28,20 +27,4 @@ int	ft_strlcpy(char *dest, const char *src, int size)
 		dest[i] = '\0';
 	}
 	return (ft_strlen(src));
-}
-
-int main(void)
-{
-    char src[] = "Hello, world!";
-    char dest[6];
-
-    int result = ft_strlcpy(dest, src, sizeof(dest));
-
-    printf("Destination: %s\n", dest);
-    printf("Source length: %zu\n", result);
-
-    if (result >= sizeof(dest))
-        printf("Warning: String truncated!\n");
-
-    return 0;
 }

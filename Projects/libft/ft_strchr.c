@@ -1,26 +1,31 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:26 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:28 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char    *ft_strchr(const char    *s, int c)
+#include "libft.h"
+
+char	*ft_strchr(const char	*s, int c)
 {
-    const char  *str = s;
-    while (*str)
-    {
-        if (*str == c)
-        {
-            return ((char *) str);
-        }
-        str++;
-    }
-    return (0);
-}
+	const char	*str;
 
-int main(void)
-{
-    char c = 'B';
-
-    char *s = "hello B wold!";
-
-    printf("here's the first occurence of the caractere: %s", ft_strchr(s,c));
-
-    return 0;
+	str = s;
+	while (*str)
+	{
+		if (*str == (char)c)
+		{
+			return ((char *) str);
+		}
+		str++;
+	}
+	if (c == '\0')
+		return ((char *)str);
+	return (NULL);
 }

@@ -1,32 +1,25 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/19 19:55:04 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:23 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    ft_putstr_fd(char   *s,int  fd)
+#include "libft.h"
+
+void	ft_putstr_fd(char	*s, int fd)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (s[i])
-    {
-        write(fd, s + i,1);
-        i++;
-    }
-}
-
-int main(void)
-{
-    int fd;
-
-    fd = open("test.txt",O_WRONLY | O_CREAT | O_TRUNC, 0644);
-
-    if (fd == -1)
-    {
-        perror("Error opening file.");
-        return 1;
-    }
-    
-    ft_putstr_fd("This is a test!", fd);
-    close(fd);
-    return 0;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, s + i, 1);
+		i++;
+	}
 }

@@ -1,45 +1,38 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/19 19:55:32 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:22 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    ft_putnbr_fd(int    n, int  fd)
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
-    char    c;
-    unsigned long    nbr;
+	char			c;
+	unsigned long	nbr;
 
-    nbr = n;
-    if (n < 0)
-    {
-        c = '-';
-        write(fd, &c, 1);
-        nbr = nbr * -1;
-    }
-    if (nbr < 10)
-    {
-        c = '0' + nbr;
-        write(fd, &c, 1);
-    }    
-    else
-    {
-        ft_putnbr_fd(nbr / 10, fd);
-        c = '0' + (nbr % 10) ;
-        write(fd, &c, 1);
-    }
-}
-
-int main(void)
-{
-    int fd;
-    fd = open("test1.txt",O_WRONLY | O_CREAT | O_TRUNC, 0644);
-
-    if (fd == -1)
-    {
-        perror("Error opening file.");
-        return 1;
-    }
-    
-    ft_putnbr_fd(-2147483648,fd);
-    
-    close(fd);
-    return 0;
+	nbr = n;
+	if (n < 0)
+	{
+		c = '-';
+		write(fd, &c, 1);
+		nbr = nbr * -1;
+	}
+	if (nbr < 10)
+	{
+		c = '0' + nbr;
+		write(fd, &c, 1);
+	}
+	else
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		c = '0' + (nbr % 10);
+		write(fd, &c, 1);
+	}
 }

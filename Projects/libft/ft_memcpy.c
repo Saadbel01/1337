@@ -1,32 +1,30 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:15 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:12 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    *ft_memcpy(void    *dest, const    void    *src, int    n)
+#include "libft.h"
+
+void	*ft_memcpy(void	*dest, const void	*src, size_t n)
 {
-    const char  *src_s;
-    char    *dest_s;
-    int i;
+	const unsigned char	*src_s;
+	unsigned char		*dest_s;
+	size_t				i;
 
-    i = 0;
-    dest_s = dest;
-    src_s = src;
-    while (i < n-1)
-    {
-        dest_s[i] = src_s[i];
-        i++;
-    }
-    dest_s[i] = '\0';
-    return (dest);
-}
-
-int main(void)
-{
-    char src[] = "Hello";
-    char dest[10];
-
-    ft_memcpy(dest, src, 3); // copy n bytes (including '\0')
-
-    printf("Source: %s\n", src);
-    printf("Destination: %s\n", dest);
-
-    return 0;
+	i = 0;
+	dest_s = dest;
+	src_s = src;
+	while (i < n)
+	{
+		dest_s[i] = src_s[i];
+		i++;
+	}
+	return (dest);
 }

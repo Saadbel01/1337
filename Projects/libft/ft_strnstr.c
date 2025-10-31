@@ -1,48 +1,35 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:43 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 13:31:13 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char    *ft_strnstr(const char  *haystack, const char   *needle, int    len)
+#include "libft.h"
+
+char	*ft_strnstr(const char	*haystack, const char	*needle, size_t len)
 {
-    int i;
-    int j;
+	size_t	i;
+	size_t	j;
 
-    i = 0;
-    if (*needle == '\0')
-        return ((char   *) haystack);
-
-    while (haystack[i] && i < len)
-    {
-        j = 1;
-        while ((haystack[i] == needle[0]))
-        {
-            if (needle[j] == '\0')
-                return ((char   *) haystack + i);
-            if (needle[j] == haystack[i + j])
-                j++;
-        }
-        i++;
-    }
-    return (NULL);
-}
-
-#include <stdio.h>
-#include <string.h>
-
-int main(void)
-{
-    char str[] = "Hello World";
-    char *res;
-
-    res = ft_strnstr(str, "World", 11);
-    if (res)
-        printf("Found: %s\n", res);
-    else
-        printf("Not found\n");
-
-    res = ft_strnstr(str, "World", 5);
-    if (res)
-        printf("Found: %s\n", res);
-    else
-        printf("Not found within first 5 chars\n");
-
-    return 0;
+	i = 0;
+	if (*needle == '\0')
+		return ((char *)haystack);
+	while (haystack[i] && i < len)
+	{
+		j = 0;
+		while ((haystack[i + j] == needle[j]) && (i + j) < len)
+		{
+			if (needle[j + 1] == '\0')
+				return ((char *)haystack + i);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
 }

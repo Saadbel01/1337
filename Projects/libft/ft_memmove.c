@@ -1,40 +1,40 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:19 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:14 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    *ft_memmove(void    *dest, const    void    *src, int    n)
+#include "libft.h"
+
+void	*ft_memmove(void	*dest, const void *src, size_t n)
 {
-    const char  *src_s;
-    char    *dest_s;
-    int i;
+	const unsigned char	*src_s;
+	unsigned char		*dest_s;
+	size_t				i;
 
-    dest_s = dest;
-    src_s = src;
-    if (dest > src)
-    {
-        while (n-- > 0)
-        {
-            dest_s[n] = src_s[n];
-        }
-    }
-    else
-    {
-        i = 0;
-        while (i < n)
-        {
-            dest_s[i] = src_s[i];
-            i++;
-        }
-    }
-    return (dest);
-}
-
-int main(void)
-{
-    char str[] = "12345";
-
-    // Overlapping copy: source and destination overlap
-    ft_memmove(str + 2, str, 3); // move "123" two positions to the right
-
-    printf("Result: %s\n", str);
-
-    return 0;
+	dest_s = dest;
+	src_s = src;
+	if (dest > src)
+	{
+		while (n-- > 0)
+		{
+			dest_s[n] = src_s[n];
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			dest_s[i] = src_s[i];
+			i++;
+		}
+	}
+	return (dest);
 }

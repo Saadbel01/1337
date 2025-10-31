@@ -1,34 +1,18 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:26:42 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 13:29:08 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memset(void  *str, int   value, int  num)
+#include "libft.h"
+
+void	ft_bzero(void	*s, size_t n)
 {
-    int i;
-    char    *str1;
-
-    str1 = str;
-    i = 0;
-    while (i < num)
-    {
-        str1[i] = value;
-        i++;
-    }
-    return (str);
-}
-
-void    ft_bzero(void  *s, int n)
-{
-    ft_memset(s,'\0',n);
-}
-
-int main(void)
-{
-    char buffer[10] = "Hello";
-
-    printf("Before bzero: %s\n", buffer);
-
-    ft_bzero(buffer, 5); // set first 5 bytes to '\0'
-
-    printf("After bzero: %s\n", buffer);
-
-    return 0;
+	ft_memset(s, 0, n);
 }

@@ -1,36 +1,33 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:12 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:10 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_memcmp(const void   *s1, const void *s2, int    n)
+#include "libft.h"
+
+int	ft_memcmp(const void	*s1, const void	*s2, size_t n)
 {
-    int i;
-    const char  *str1;
-    const char  *str2;
+	size_t				i;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 
-    i = 0;
-    str1 = s1;
-    str2 = s2;
-    while (i < n)
-    {
-        if (str1[i] != str2[i])
-        {
-            return (str1[i] - str2[i]);
-        }
-        i++;
-    }
-    return (0);
-}
-
-
-int main(void)
-{
-    char s1[] = "Hello";
-    char s2[] = "Helium";
-    int n = 4;
-    int result = ft_memcmp(s1, s2, n);
-    if (result == 0)
-        printf("First %d characters are equal\n",n);
-    else
-        printf("First %d characters are different\n",n);
-
-    return 0;
+	i = 0;
+	str1 = s1;
+	str2 = s2;
+	while (i < n)
+	{
+		if (str1[i] != str2[i])
+		{
+			return (str1[i] - str2[i]);
+		}
+		i++;
+	}
+	return (0);
 }

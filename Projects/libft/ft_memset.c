@@ -1,29 +1,28 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:22 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:16 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memset(void  *str, int   value, int  num)
+#include "libft.h"
+
+void	*ft_memset(void	*str, int value, size_t num)
 {
-    int i;
-    char    *str1;
+	size_t			i;
+	unsigned char	*str1;
 
-    str1 = str;
-    i = 0;
-    while (i < num)
-    {
-        str1[i] = value;
-        i++;
-    }
-    return (str);
-}
-
-int main()
-{
-    char str[20] = "12345Test this!";
-    printf("Before memset: %s\n", str);
-
-    // Replace first 5 characters with '-'
-    ft_memset(str, '-', 5);
-
-    printf("After memset:  %s\n", str);
-
-    return 0;
+	str1 = (unsigned char *)str;
+	i = 0;
+	while (i < num)
+	{
+		str1[i] = (unsigned char)value;
+		i++;
+	}
+	return (str);
 }

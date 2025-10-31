@@ -1,27 +1,25 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbelcadi <sbelcadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/13 14:27:05 by sbelcadi          #+#    #+#             */
+/*   Updated: 2025/10/30 14:01:03 by sbelcadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isprint(int  c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
-    if ((c >= 32 && c <= 126))
-    {
-        return (c);
-    }
-    else
-    {
-        return (0);
-    }
-}
-
-int main()
-{
-    char    c;
-    char    c1;
-
-    c = 'F';
-    c1 = '\n';
-
-    printf("%d \n",ft_isprint(c));
-    printf("%d \n",ft_isprint(c1));
-
-    return (0);
+	if ((c >= 32 && c <= 126))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
